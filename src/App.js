@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import {
-  SafeAreaView,
   View,
   StyleSheet,
   Text,
@@ -11,7 +10,6 @@ import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -35,6 +33,22 @@ export const StyledButton = styled.button`
     -moz-box-shadow: none;
   }
 `;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#7CA1B4",
+    flex: 1,
+    alignItems: "center", // ignore this - we'll come back to it
+    justifyContent: "center", // ignore this - we'll come back to it
+    flexDirection: "column"
+  },
+  square: {
+    backgroundColor: "#7cb48f",
+    width: 100,
+    height: 100,
+    margin: 4,
+  },
+});
 
 export const StyledRoundButton = styled.button`
   padding: 10px;
@@ -73,6 +87,9 @@ export const ResponsiveWrapper = styled.div`
   }
 `;
 
+
+
+
 export const StyledLogo = styled.img`
   width: 200px;
   @media (min-width: 767px) {
@@ -83,9 +100,9 @@ export const StyledLogo = styled.img`
 `;
 
 export const StyledImg = styled.img`
-  box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 4px dashed var(--secondary);
-  background-color: var(--accent);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.7);
+
+  
   border-radius: 100%;
   width: 200px;
   @media (min-width: 900px) {
@@ -96,6 +113,21 @@ export const StyledImg = styled.img`
   }
   transition: width 0.5s;
 `;
+export const StyledImg2 = styled.img`
+  box-shadow: 3px 5px 11px 2px rgba(0, 0, 0, 0.7);
+
+  background-color: var(--accent);
+  border-radius: 100%;
+  width: 50px;
+  @media (min-width: 900px) {
+    width: 75px;
+  }
+  @media (min-width: 1000px) {
+    width: 68px;
+  }
+  transition: width 0.5s;
+`;
+
 
 export const StyledLink = styled.a`
   color: var(--secondary);
@@ -210,9 +242,9 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
-        <a href={CONFIG.MARKETPLACE_LINK}>
+        
           <StyledLogo alt={"logo"} src={"/config/images/logo.gif"} />
-        </a>
+       
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
@@ -224,10 +256,10 @@ function App() {
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "var(--accent)",
+              
               padding: 24,
               borderRadius: 24,
-              border: "4px dashed var(--secondary)",
+              border: "0px dashed var(--secondary)",
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
@@ -261,7 +293,7 @@ function App() {
                   margin: "5px",
                 }}
                 onClick={(e) => {
-                  window.open(CONFIG.WEBSITE, "_blank");
+                  window.open(CONFIG.WEBSITE);
                 }}
               >Website
               
@@ -426,18 +458,49 @@ function App() {
               fontWeight: "bold"
             }}
           >
-For rewards Stake your Sifu Inu tokens 
+To see if you are a weekly winner simply click
 </s.TextDescription>
 
 <Text style={{font: "var(font-link)", fontWeight: "bold", color: 'red'}}
-      onPress={() => Linking.openURL('http://sifustaking.io')}>
+      onPress={() => Linking.openURL('https://crypto-jackpot.com/jackpot-results/')}>
   here
 </Text>
 
+<View style={{position: 'absolute',left: 0,  bottom: 0, }}>
+<ResponsiveWrapper>
+<s.Container flex={1}>
+  <a href={"https://oblivion.art/"}>
+            <StyledImg2
+              alt={"example"}
+              src={"/config/images/oblivionlogo.png"}
+            />
+            </a>
+          </s.Container>
+          <s.SpacerXSmall></s.SpacerXSmall>
+          <s.Container flex={19}>
+  <a href={"https://walletnow.net/"}>
+            <StyledImg2
+              alt={"example"}
+              src={"/config/images/walletnowlogo.png"}
+            />
+            </a>
+          </s.Container>
+          </ResponsiveWrapper> 
+         
+          </View>
 
 
+          
         </s.Container>
+
+
+
+        
       </s.Container>
+
+
+
+      
     </s.Screen>
   );
 }

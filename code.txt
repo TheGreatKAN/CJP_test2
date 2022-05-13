@@ -1,0 +1,31 @@
+<div class="card" style="width: 18rem;">
+  <img src="/config/images/walletnowlogo.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+<ResponsiveWrapper>
+<s.Container flex={1}>
+  <a href={"https://oblivion.art/"}>
+            <StyledImg2
+              alt={"example"}
+              src={"/config/images/oblivionlogo.png"}
+            />
+            </a>
+          </s.Container>
+          <s.Container flex={19}>
+  <a href={"https://oblivion.art/"}>
+            <StyledImg2
+              alt={"example"}
+              src={"/config/images/walletnowlogo.png"}
+            />
+            </a>
+          </s.Container>
+          </ResponsiveWrapper> 
+         
